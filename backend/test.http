@@ -2,3 +2,7 @@ GET https://localhost:7202
 
 ###
 GET https://localhost:7202/hellous
+
+
+###
+GEt http://my-super-best-net24s-chapp.azurewebsites.net
