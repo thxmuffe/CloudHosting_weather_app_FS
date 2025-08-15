@@ -8,7 +8,6 @@ app.Run();
 
 string HelloMehthod()
 {
-    // Soon we add code, which reads the message from a file...
-    var message = "Moicca";
-    return message + "!";
+    var message = File.ReadAllText("hello.txt");
+    return "Read from FILE:\n\n" + message;
 }
