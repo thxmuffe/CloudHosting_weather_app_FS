@@ -33,6 +33,3 @@ string GetHello()
 }
 
 
-// Deploy with:
-// az webapp up --name my-super-best-net24s-chapp -g test1 --location westeurope --sku B1 --os-type linux
-
