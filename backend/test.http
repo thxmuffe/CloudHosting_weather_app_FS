@@ -5,4 +5,10 @@ GET https://localhost:7202/hellous
 
 
 ###
-GEt http://my-super-best-net24s-chapp.azurewebsites.net
+# this should give "Hello Net24S"
+GEt http://my-super-best-net24s-chapp.azurewebsites.net/
+
+###
+# this will fail (should say: dont maske me come up there...)
+
+GEt http://my-super-best-net24s-chapp.azurewebsites.net/hellous
