@@ -1,3 +1,8 @@
+string path = Directory.GetCurrentDirectory();
+Console.WriteLine("program started from {0}", path);
+            
+
+
 // 1)
 var builder = WebApplication.CreateBuilder(args);
 
