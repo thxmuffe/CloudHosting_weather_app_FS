@@ -5,6 +5,11 @@ GET https://localhost:7202/hellous
 
 
 ###
+# (when starting from bin/debug/net9.0
+# port is 5000 for some reason)
+GET http://localhost:5000/hellous
+
+###
 # this should give "Hello Net24S"
 GEt http://my-super-best-net24s-chapp.azurewebsites.net/
 
