@@ -1,5 +1,12 @@
-string path = Directory.GetCurrentDirectory();
-Console.WriteLine("program started from {0}", path);
+// Print to console information about program paths when program stars
+// Later we can also send this information to logger (application insights / NLogger, SeriLog etc.)
+Console.WriteLine(@$"Current Directory:
+     {Directory.GetCurrentDirectory()}");
+
+Console.WriteLine(@$"Executing Assembly: 
+    {Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)}");
+
+
             
 
 
@@ -27,14 +34,25 @@ Console.WriteLine("This should never happen... (is impossible, should be at leas
 // What about these??
 string GetHello()
 {
-    var helloFolder = new DirectoryInfo(Directory.GetCurrentDirectory());
+    // 1) Determine hello.txt full file path (look in the same folder as program files are)
+    //    Using Path.Combine allows use to not worry about the
+    //    Operating system separator (is it /, \\, or what.??)
+    var helloFolder = new DirectoryInfo(
+        Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)
+    );
     var helloPath = Path.Combine(helloFolder.FullName, "hello.txt");
 
-    // Check that file exists, otherwise it may result into HTTP ERROR CODE 500
+    // 2) Check that file exists, otherwise it may result into HTTP ERROR CODE 500
+    if (!File.Exists(helloPath)) {
+        return
+@$"Sorry, can't return hello from file. File '{helloPath}' not found.
+Please Contact your IT support";
+    }
     
-    // print to console absolute path (Fullname)
-    Console.WriteLine($"Reading hello from: {helloPath}");
+    // 3) file was found OK, print debug info to console absolute path (Fullname)
+    Console.WriteLine($"FILE FOUND! Yippee! Reading hello from: {helloPath}");
 
+    // 4) Read the actual content of the file and return his to the HTTP GET HANDLER
     var message = File.ReadAllText(helloPath);
     return "Read from FILE:\n\n" + message;
 }
