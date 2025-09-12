@@ -22,7 +22,7 @@ var app = builder.Build();
 // 4)
 // MAP.     ENDPOINT <-> metodi()
 app.MapGet("hellous/", GetHello);
-app.MapGet("/", () => "Hello NET24S!"); // Using "anonomous functions"
+app.MapGet("/", () => "Hello NET24S Ryhmä (pieni muutos 12.9.2025)!"); // Using "anonomous functions"
 
 // 5).   after run.... program will stop here to wait for GET/POPST/UPDATE calls..
 app.Run();
@@ -56,5 +56,6 @@ Please Contact your IT support";
     var message = File.ReadAllText(helloPath);
     return "Read from FILE:\n\n" + message;
 }
+
 
 
