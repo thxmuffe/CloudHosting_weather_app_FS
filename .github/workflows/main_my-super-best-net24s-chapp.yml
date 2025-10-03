@@ -52,6 +52,5 @@ jobs:
         with:
           app-name: 'my-super-best-net24s-chapp'
           slot-name: 'Production'
-          package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3DD379C82DD8488089CFFD8942520866 }}
           package: './.net-app'
