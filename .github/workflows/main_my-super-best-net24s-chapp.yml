@@ -44,7 +44,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: myapp
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: myapp
       
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -53,4 +53,4 @@ jobs:
           app-name: 'my-super-best-net24s-chapp'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3DD379C82DD8488089CFFD8942520866 }}
-          package: '${{env.DOTNET_ROOT}}/myapp'
+          package: 'myapp'
